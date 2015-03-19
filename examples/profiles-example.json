@@ -1,34 +1,37 @@
-{
-  "avatar" : "http://a3.twimg.com/profile_images/1405180232.png" ,
-  "created_at" : 1320703028 ,
-  "default" : true ,
-  "formatted_username" : "@skinnyoteam" ,
-  "id" : "4eb854340acb04e870000010" ,
-  "schedules" : [
-    {
-      "days" : [
-        "mon" ,
-        "tue" ,
-        "wed" ,
-        "thu" ,
-        "fri"
-      ] ,
-      "times" : [
-        "12:00" ,
-        "17:00" ,
-        "18:00"
-      ]
-    }
-  ] ,
-  "service" : "twitter" ,
-  "service_id" : "164724445" ,
-  "service_username" : "skinnyoteam" ,
-  "statistics" : {
-    "followers" : 246
-  } ,
-  "team_members" : [
-    "4eb867340acb04e670000001"
-  ] ,
-  "timezone" : "Europe/London" ,
-  "user_id" : "4eb854340acb04e870000010"
-}
+[{
+  "_id": "5493f1f32540f27f0666ae11",
+  "avatar": "http:\/\/s3.licdn.com\/scds\/common\/u\/img\/icon\/icon_no_photo_no_border_60x60.png",
+  "avatar_https": "http:\/\/s3.licdn.com\/scds\/common\/u\/img\/icon\/icon_no_photo_no_border_60x60.png",
+  "counts": {
+    "daily_suggestions": 25,
+    "pending": 1,
+    "sent": 1,
+    "drafts": 0
+  },
+  "cover_photo": "https:\/\/d3ijcis4e2ziok.cloudfront.net\/default-cover-photos\/blurry-blue-background-iii_facebook_timeline_cover.jpg",
+  "default": true,
+  "disabled_features": [],
+  "disconnected": "null",
+  "formatted_service": "LinkedIn",
+  "formatted_username": "Ramltest Notebook",
+  "has_used_suggestions": false,
+  "id": "5493f1f32540f27f0666ae11",
+  "schedules": [{
+    "days": ["mon"],
+    "times": []
+  }],
+  "service": "linkedin",
+  "service_id": "s09xjxjMcz",
+  "service_type": "profile",
+  "service_username": "Ramltest Notebook",
+  "shortener": {
+    "domain": "buff.ly"
+  },
+  "statistics": {
+    "connections": 1
+  },
+  "timezone": "Europe\/London",
+  "user_id": "5493f1f22540f27f0666ae0e",
+  "utm_tracking": "enabled",
+  "verb": "post"
+}]

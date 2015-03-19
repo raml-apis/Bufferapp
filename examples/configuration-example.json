@@ -1,128 +1,201 @@
 {
-  "services" : {
-    "twitter" : {
-      "types" : {
-        "profile" : {
-          "name" : "Twitter" ,
-          "character_limit" : 140 ,
-          "schedule_limit" : 288 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/twitter-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/twitter-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/twitter-64x64.png"
-          } ,
-          "supported_interactions" : [
-            "favorites" ,
-            "mentions" ,
-            "retweets"
-          ]
+  "services": {
+    "twitter": {
+      "types": {
+        "profile": {
+          "name": "Twitter",
+          "character_limit": 140,
+          "schedule_limit": 730,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/twitter-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/twitter-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/twitter-64x64.png"
+          },
+          "supported_interactions": ["mentions",
+          "mention",
+          "retweets",
+          "retweet"],
+          "link_attachments": false
         }
-      } ,
-      "urls" : {
-        "user" : "https://twitter.com/" ,
-        "hashtag" : "https://twitter.com/#!/search?q=%23" ,
-        "cashtag" : "https://twitter.com/#!/search?q=%24"
+      },
+      "urls": {
+        "user": "https:\/\/twitter.com\/",
+        "hashtag": "https:\/\/twitter.com\/#!\/search?q=%23",
+        "cashtag": "https:\/\/twitter.com\/#!\/search?q=%24"
       }
-    } ,
-    "facebook" : {
-      "types" : {
-        "profile" : {
-          "name" : "Facebook" ,
-          "character_limit" : 5000 ,
-          "schedule_limit" : 5 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/facebook-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/facebook-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/facebook-64x64.png"
-          } ,
-          "supported_interactions" : [
-            "likes" ,
-            "comments"
-          ]
-        } ,
-        "page" : {
-          "name" : "Facebook Page" ,
-          "character_limit" : 5000 ,
-          "schedule_limit" : 5 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/facebook-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/facebook-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/facebook-64x64.png"
-          } ,
-          "supported_interactions" : [
-            "likes" ,
-            "comments"
-          ]
+    },
+    "facebook": {
+      "types": {
+        "profile": {
+          "name": "Facebook",
+          "character_limit": 5000,
+          "schedule_limit": 25,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/facebook-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/facebook-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/facebook-64x64.png"
+          },
+          "supported_interactions": ["likes",
+          "like",
+          "comments",
+          "comment"],
+          "link_attachments": true
+        },
+        "page": {
+          "name": "Facebook Page",
+          "character_limit": 5000,
+          "schedule_limit": 25,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/facebook-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/facebook-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/facebook-64x64.png"
+          },
+          "supported_interactions": ["likes",
+          "like",
+          "comments",
+          "comment"],
+          "link_attachments": true
+        },
+        "group": {
+          "name": "Facebook Group",
+          "character_limit": 5000,
+          "schedule_limit": 25,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/fb-group-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/fb-group-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/fb-group-64x64.png"
+          },
+          "supported_interactions": ["likes",
+          "like",
+          "comments",
+          "comment"],
+          "link_attachments": true
         }
-      } ,
-      "urls" : {
-        "user" : "https://www.facebook.com/"
+      },
+      "urls": {
+        "user": "https:\/\/www.facebook.com\/"
       }
-    } ,
-    "linkedin" : {
-      "types" : {
-        "profile" : {
-          "name" : "LinkedIn" ,
-          "character_limit" : 700 ,
-          "schedule_limit" : 25 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/linkedin-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/linkedin-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/linkedin-64x64.png"
-          } ,
-          "supported_interactions" : [
-            "comments" ,
-            "likes"
-          ]
-        } ,
-        "group" : {
-          "name" : "LinkedIn Group" ,
-          "character_limit" : 200 ,
-          "schedule_limit" : 100 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/linkedin-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/linkedin-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/linkedin-64x64.png"
-          } ,
-          "supported_interactions" : [
-            "comments" ,
-            "likes"
-          ]
+    },
+    "linkedin": {
+      "types": {
+        "profile": {
+          "name": "LinkedIn",
+          "character_limit": 700,
+          "schedule_limit": 100,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png"
+          },
+          "supported_interactions": ["comments",
+          "comment",
+          "likes",
+          "like"],
+          "link_attachments": true
+        },
+        "group": {
+          "name": "LinkedIn Group",
+          "character_limit": 200,
+          "schedule_limit": 100,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png"
+          },
+          "supported_interactions": ["comments",
+          "comment",
+          "likes",
+          "like"],
+          "link_attachments": true
+        },
+        "page": {
+          "name": "LinkedIn Company Page",
+          "character_limit": 600,
+          "schedule_limit": 100,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png"
+          },
+          "supported_interactions": ["comments",
+          "comment",
+          "likes",
+          "like"],
+          "link_attachments": true
         }
-      } ,
-      "urls" : {
-        "user" : "http://www.linkedin.com/search/fpsearch?type=people&keywords="
+      },
+      "urls": {
+        "user": "http:\/\/www.linkedin.com\/search\/fpsearch?type=people&keywords="
       }
-    } ,
-    "appdotnet" : {
-      "types" : {
-        "profile" : {
-          "name" : "App.net" ,
-          "character_limit" : 256 ,
-          "schedule_limit" : 288 ,
-          "icons" : {
-            "16" : "http://static.bufferapp.com/images/services/appdotnet-alpha-16x16.png" ,
-            "32" : "http://static.bufferapp.com/images/services/appdotnet-alpha2-32x32.png" ,
-            "64" : "http://static.bufferapp.com/images/services/appdotnet-alpha-64x64.png"
-          } ,
-          "supported_interactions" : [
-          ]
+    },
+    "appdotnet": {
+      "types": {
+        "profile": {
+          "name": "App.net",
+          "character_limit": 256,
+          "schedule_limit": 730,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha2-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha-64x64.png"
+          },
+          "supported_interactions": [],
+          "link_attachments": false
         }
-      } ,
-      "urls" : {
-        "user" : "https://alpha.app.net/" ,
-        "hashtag" : "https://alpha.app.net/hashtags/"
+      },
+      "urls": {
+        "user": "https:\/\/alpha.app.net\/",
+        "hashtag": "https:\/\/alpha.app.net\/hashtags\/"
+      }
+    },
+    "google": {
+      "types": {
+        "profile": {
+          "name": "Google+",
+          "character_limit": 5000,
+          "schedule_limit": 100,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/google-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/google-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/google-64x64.png"
+          },
+          "supported_interactions": ["plusOnes",
+          "plusOne",
+          "comments",
+          "comment",
+          "reshares",
+          "reshare"],
+          "link_attachments": true
+        },
+        "page": {
+          "name": "Google+ Page",
+          "character_limit": 5000,
+          "schedule_limit": 100,
+          "icons": {
+            "16": "http:\/\/static.bufferapp.com\/images\/services\/google-16x16.png",
+            "32": "http:\/\/static.bufferapp.com\/images\/services\/google-32x32.png",
+            "64": "http:\/\/static.bufferapp.com\/images\/services\/google-64x64.png"
+          },
+          "supported_interactions": ["plusOnes",
+          "plusOne",
+          "comments",
+          "comment",
+          "reshares",
+          "reshare"],
+          "link_attachments": true
+        }
+      },
+      "urls": {
+        "user": "https:\/\/plus.google.com\/"
       }
     }
-  } ,
-  "media" : {
-    "picture_size_min" : 0 ,
-    "picture_size_max" : 5242880 ,
-    "picture_filetypes" : [
-      "jpeg" ,
-      "jpg" ,
-      "gif" ,
-      "png"
-    ]
+  },
+  "media": {
+    "picture_size_min": 0,
+    "picture_size_max": 3145728,
+    "picture_filetypes": ["jpeg",
+    "jpg",
+    "gif",
+    "png"]
   }
 }

@@ -1,95 +1,158 @@
 {
   "required" : true ,
   "$schema" : "http://json-schema.org/draft-03/schema" ,
-  "type" : "object" ,
-  "properties" : {
-    "avatar" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "created_at" : {
-      "type" : "number" ,
-      "required" : false
-    } ,
-    "default" : {
-      "type" : "boolean" ,
-      "required" : false
-    } ,
-    "formatted_username" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "id" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "schedules" : {
-      "type" : "array" ,
-      "required" : false ,
-      "items" : 
-        {
+  "type" : "array" ,
+  "items" : [
+    {
+      "type" : "object" ,
+      "properties" : {
+        "_id" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "avatar" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "avatar_https" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "counts" : {
           "type" : "object" ,
+          "required" : false ,
           "properties" : {
-            "days" : {
-              "type" : "array" ,
-              "required" : false ,
-              "items" : 
-                {
-                  "type" : "string"
-                }
-              
+            "daily_suggestions" : {
+              "type" : "number" ,
+              "required" : false
             } ,
-            "times" : {
-              "type" : "array" ,
-              "required" : false ,
-              "items" : 
-                {
-                  "type" : "string"
-                }
-              
+            "pending" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "sent" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "drafts" : {
+              "type" : "number" ,
+              "required" : false
             }
           }
-        }
-      
-    } ,
-    "service" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "service_id" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "service_username" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "statistics" : {
-      "type" : "object" ,
-      "required" : false ,
-      "properties" : {
-        "followers" : {
-          "type" : "number" ,
+        } ,
+        "cover_photo" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "default" : {
+          "type" : "boolean" ,
+          "required" : false
+        } ,
+        "disabled_features" : {
+          "type" : "array" ,
+          "required" : false ,
+          "items" : [
+          ]
+        } ,
+        "disconnected" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "formatted_service" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "formatted_username" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "has_used_suggestions" : {
+          "type" : "boolean" ,
+          "required" : false
+        } ,
+        "id" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "schedules" : {
+          "type" : "array" ,
+          "required" : false ,
+          "items" : [
+            {
+              "type" : "object" ,
+              "properties" : {
+                "days" : {
+                  "type" : "array" ,
+                  "required" : false ,
+                  "items" : [
+                    {
+                      "type" : "string"
+                    }
+                  ]
+                } ,
+                "times" : {
+                  "type" : "array" ,
+                  "required" : false ,
+                  "items" : [
+                  ]
+                }
+              }
+            }
+          ]
+        } ,
+        "service" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "service_id" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "service_type" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "service_username" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "shortener" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "domain" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } ,
+        "statistics" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "connections" : {
+              "type" : "number" ,
+              "required" : false
+            }
+          }
+        } ,
+        "timezone" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "user_id" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "utm_tracking" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "verb" : {
+          "type" : "string" ,
           "required" : false
         }
       }
-    } ,
-    "team_members" : {
-      "type" : "array" ,
-      "required" : false ,
-      "items" : 
-        {
-          "type" : "string"
-        }
-      
-    } ,
-    "timezone" : {
-      "type" : "string" ,
-      "required" : false
-    } ,
-    "user_id" : {
-      "type" : "string" ,
-      "required" : false
     }
-  }
+  ]
 }
