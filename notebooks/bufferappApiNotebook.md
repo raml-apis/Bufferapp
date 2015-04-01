@@ -80,7 +80,7 @@ clientSecret = prompt("Please, enter clientSecret of your BufferApp application"
 
 // Read about the Bufferapp API at https://anypoint.mulesoft.com/apiplatform/popular/admin/#/dashboard/apis/7717/versions/7851/contracts
 
-API.createClient('client', '/apiplatform/repository/public/organizations/30/apis/7717/versions/7851/definition');
+API.createClient('client', '#REF_TAG_DEFENITION');
 
 ```
 
