@@ -1,0 +1,795 @@
+#%RAML 1.0 Library
+types:
+  User:
+    type: object
+    properties:
+      _id?: string
+      activity_at?: number
+      created_at?: number
+      id?: string
+      plan?: string
+      referral_link?: string
+      referral_token?: string
+      secret_email?: string
+      timezone?: string
+    example:
+      _id : 4f0c0a06512f7ef214000000
+      activity_at : 1343654640
+      created_at : 1326189062
+      id : 4f0c0a06512f7ef214000000
+      plan : free
+      referral_link : http://bufferapp.com/r/abcde
+      referral_token : abcde
+      secret_email : buffer-abc123def456@to.bufferapp.com
+      timezone : Asia/Tel_Aviv
+  Schedules:
+    type: object
+    properties:
+      days?: string[]
+      times?: string[]
+    example:
+      days :
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      times :
+        - 12:00
+        - 17:00
+        - 18:00
+  Profile:
+    type: object
+    properties:
+      avatar?: string
+      avatar_https?: string
+      created_at?: number
+      default?: boolean
+      formatted_username?: string
+      id?: string
+      schedules?: Schedules[]
+      service?: string
+      service_id?: string
+      service_username?: string
+      statistics?:
+        type : object
+        properties :
+          followers?: number
+      team_members?: string[]
+      timezone?: string
+      user_id?: string
+    example:
+      avatar : http://a3.twimg.com/profile_images/1405180232.png
+      created_at : 1320703028
+      default : true
+      formatted_username : e@skinnyoteam
+      id : 4eb854340acb04e870000010
+      schedules :
+        - days :
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+          times :
+            - 12:00
+            - 17:00
+            - 18:00
+      service : twitter
+      service_id : 164724445
+      service_username : skinnyoteam
+      statistics :
+        followers : 246
+      team_members :
+        - 4eb867340acb04e670000001
+      timezone : Europe/London
+      user_id : 4eb854340acb04e870000010
+  ProfileItem:
+    type: object
+    properties:
+      _id?: string
+      avatar?: string
+      avatar_https?: string
+      counts?:
+        type : object
+        properties :
+          daily_suggestions?: number
+          pending?: number
+          sent?: number
+          drafts?: number
+      cover_photo?: string
+      default?: boolean
+      disabled_features : string[]
+      disconnected?: string
+      formatted_service?: string
+      formatted_username?: string
+      has_used_suggestions?: boolean
+      id?: string
+      schedules?: Schedules[]
+      service?: string
+      service_id?: string
+      service_type?: string
+      service_username?: string
+      shortener?:
+        type : object
+        properties :
+          domain?: string
+      statistics?:
+        type: object
+        properties:
+          connections?: number
+      timezone?: string
+      user_id?: string
+      utm_tracking?: string
+      verb?: string
+    example:
+      _id: 5493f1f32540f27f0666ae11
+      avatar: http:\/\/s3.licdn.com\/scds\/common\/u\/img\/icon\/icon_no_photo_no_border_60x60.png
+      avatar_https: http:\/\/s3.licdn.com\/scds\/common\/u\/img\/icon\/icon_no_photo_no_border_60x60.png
+      counts:
+        daily_suggestions: 25
+        pending: 1
+        sent: 1
+        drafts: 0
+      cover_photo: https:\/\/d3ijcis4e2ziok.cloudfront.net\/default-cover-photos\/blurry-blue-background-iii_facebook_timeline_cover.jpg
+      default: true
+      disabled_features: []
+      disconnected: null
+      formatted_service: LinkedIn
+      formatted_username: Ramltest Notebook
+      has_used_suggestions: false
+      id: 5493f1f32540f27f0666ae11
+      schedules:
+        days:
+          - mon
+      service: linkedin
+      service_id: s09xjxjMcz
+      service_type: profile
+      service_username: Ramltest Notebook
+      shortener:
+        domain: buff.ly
+      statistics:
+        connections: 1
+      timezone: Europe\/London
+      user_id: 5493f1f22540f27f0666ae0e
+      utm_tracking: enabled
+      verb: post
+  Profiles: ProfileItem[]
+  Schedules-update:
+    type: object
+    properties:
+      succes?: boolean
+    example:
+      succes: true
+  Update:
+    type: object
+    properties:
+      id?: string
+      client_id?: string
+      created_at?: number
+      day?: string
+      due_at?: number
+      due_time?: string
+      media?:
+        type : object
+        properties :
+          link?: string
+          title?: string
+          description?: string
+      profile_id?: string
+      profile_service?: string
+      sent_at?: number
+      service_update_id?: string
+      statistics?:
+        type : object
+        properties :
+          reach?: number
+          clicks?: number
+          retweets?: number
+          favorites?: number
+          mentions?: number
+      status?: string
+      text?: string
+      text_formatted?: string
+      user_id?: string
+      via?: string
+    example:
+      id : 4eb8565e0acb04bb82000004
+      created_at : 1320703582
+      day : Monday 7th November
+      due_at : 1320742680
+      due_time : 10:09 pm
+      profile_id : 4eb854340acb04e870000010
+      profile_service : twitter
+      sent_at : 1320744001
+      service_update_id : 133667319959392256
+      statistics :
+        reach : 2460
+        clicks : 56
+        retweets : 20
+        favorites : 1
+        mentions : 1
+      status : sent
+      text : This is just the beginning the very beginning of the transfor...
+      text_formatted : This is just the beginning the very beginning of th...
+      user_id : 4eb9276e0acb04bb81000067
+      via : chrome
+  Updates-array:
+    type: object
+    properties:
+      total?: number
+      updates?: Update[]
+    example:
+      total : 8
+      updates :
+        - id : 4ec93ae4512f7e6307000002
+          created_at : 1320703582
+          day : Monday 7th November
+          due_at : 1320543480
+          due_time : 07:01 pm
+          profile_id : 4eb854340acb04e870000010
+          profile_service : twitter
+          status : buffer
+          text : This is me in an alternate life where i can breakdance j.mp/w...
+          text_formatted : This is me in an alternate life where i can breakda...
+          user_id : 4eb9276e0acb04bb81000067
+          via : firefox
+  Interaction:
+    type: object
+    properties:
+      _id?: string
+      created_at?: number
+      event?: string
+      id?: string
+      interaction_id: string
+      user?:
+        type : object
+        properties :
+          username?: string
+          followers?: number
+          avatar?: string
+          avatar_https?: string
+          twitter_id?: string
+    example:
+      _id : 50f98310c5ac415d7f2e74fd
+      created_at : 1358509258
+      event : favorite
+      id : 50f98310c5ac415d7f2e74fd
+      interaction_id : 292235127847788544
+      user :
+        username : Crispy Potatoes
+        followers : 160
+        avatar : http://si0.twimg.com/profile_images/...
+        avatar_https : https://si0.twimg.com/profile_images/...
+        twitter_id : 70712344376
+  Interactions:
+    type: object
+    properties:
+      total?: number
+      interactions: Interaction[]
+    example:
+      total : 2
+      interactions :
+        - _id : 50f98310c5ac415d7f2e74fd
+          created_at : 1358509258
+          event : favorite
+          id : 50f98310c5ac415d7f2e74fd
+          interaction_id : 292235127847788544
+          user :
+            username : Crispy Potatoes
+            followers : 160
+            avatar : http://si0.twimg.com/profile_images/...
+            avatar_https : https://si0.twimg.com/profile_images/...
+            twitter_id : 70712344376
+        - _id : 50f8623ac5ac415d7f1d4f77
+          created_at : 1358454592
+          event : retweet
+          id : 50f8623ac5ac415d7f1d4f77
+          interaction_id : 292005842654461953
+          user :
+            username : Lucky Number 8
+            followers : 36079
+            avatar : http://si0.twimg.com/profile_images/2901468678/...
+            avatar_https : https://si0.twimg.com/profile_images/2901468678/...
+            twitter_id : 1423444249
+  Reorder:
+    type: object
+    properties:
+      success?: boolean
+      updates : Update[]
+    example:
+      success : true
+      updates :
+        - id : 4eb854340acb04e870000010
+          created_at : 1320703582
+          day : Saturday 5th November
+          due_at : 1320742680
+          due_time : 08:01 am
+          profile_id : 4eb854340acb04e870000010
+          profile_service : twitter
+          status : buffer
+          text : 3 Incredible Stories Made Possible Through Twitter j.mp/u...
+          text_formatted : 3 Incredible Stories Made Possible Through Twit...
+          user_id : 4eb9276e0acb04bb81000067
+          via : safari
+        - id : 4eb854340acb04e870000010
+          created_at : 1320703582
+          day : Saturday 5th November
+          due_at : 1320742680
+          due_time : 08:01 am
+          profile_id : 4eb854340acb04e870000010
+          profile_service : twitter
+          status : buffer
+          text : 3 Incredible Stories Made Possible Through Twitter j.mp/u...
+          text_formatted : 3 Incredible Stories Made Possible Through Twit...
+          user_id : 4eb9276e0acb04bb81000067
+          via : safari
+  NewUpdate:
+    type : object
+    properties :
+      success?: boolean
+      buffer_count?: number
+      buffer_percentage?: number
+      updates : Update[]
+    example:
+      success : true
+      buffer_count : 10
+      buffer_percentage : 20
+      updates :
+        - id : 4ecda256512f7ee521000004
+          created_at : 1320703582
+          day : Saturday 26th November
+          due_at : 1320742680
+          due_time : 11:05 am
+          media :
+            link : http://google.com
+            title : Google
+            description : The google homepage
+          profile_id : 4eb854340acb04e870000010
+          profile_service : twitter
+          status : buffer
+          text : This is an example update
+          text_formatted : This is an example update
+          user_id : 4eb9276e0acb04bb81000067
+          via : api
+        - id : 4ecda256512f7ee521000004
+          created_at : 1320703582
+          day : Saturday 26th November
+          due_at : 1320742680
+          due_time : 11:05 am
+          media :
+            link : http://google.com
+            title : Google
+            description : The google homepage
+          profile_id : 4eb854340acb04e870000010
+          profile_service : twitter
+          status : buffer
+          text : This is an example update
+          text_formatted : This is an example update
+          user_id : 4eb9276e0acb04bb81000067
+          via : api
+  Individual-update:
+    type : object
+    properties :
+      success?: boolean
+      buffer_count?: number
+      buffer_percentage?: number
+      update?: Update
+    example:
+      success : true
+      buffer_count : 10
+      buffer_percentage : 20
+      update :
+        id : 4ecda256512f7ee521000004
+        client_id : 4f850cc93733aa9301000002
+        created_at : 1320703582
+        day : Saturday 26th November
+        due_at : 1320742680
+        due_time : 11:05 am
+        media :
+          link : http://google.com
+          title : Google
+          description : The google homepage
+        profile_id : 4eb854340acb04e870000010
+        profile_service : twitter
+        status : buffer
+        text : This is an edited update
+        text_formatted : This is an edited update
+        user_id : 4eb9276e0acb04bb81000067
+        via : api
+  Share:
+    type: object
+    properties:
+      success?: boolean
+    example:
+      success: true
+  Shares:
+    type: object
+    properties:
+      shares?: number
+    example:
+      shares: 2
+  Success:
+    type: object
+    properties:
+      success?: boolean
+    example:
+      success: true
+  Configuration:
+    type : object
+    properties :
+      services?:
+        type : object
+        properties :
+          twitter?:
+            type : object
+            properties :
+              types?:
+                type : object
+                properties :
+                  profile?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+              urls?:
+                type : object
+                properties :
+                  user?: string
+                  hashtag?: string
+                  cashtag?: string
+          facebook?:
+            type : object
+            properties :
+              types?:
+                type : object
+                properties :
+                  profile?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+                  page?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+                  group?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+              urls?:
+                type : object
+                properties :
+                  user?: string
+          linkedin?:
+            type : object
+            properties :
+              types?:
+                type : object
+                properties :
+                  profile?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+                  group?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+                  page?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+              urls?:
+                type : object
+                properties :
+                  user?: string
+          appdotnet?:
+            type : object
+            properties :
+              types?:
+                type : object
+                properties :
+                  profile?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+              urls?:
+                type : object
+                properties :
+                  user?: string
+                  hashtag?: string
+          google?:
+            type : object
+            properties :
+              types?:
+                type : object
+                properties :
+                  profile?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+                  page?:
+                    type : object
+                    properties :
+                      name?: string
+                      character_limit?: number
+                      schedule_limit?: number
+                      icons?:
+                        type : object
+                        properties :
+                          16?: string
+                          32?: string
+                          64?: string
+                      supported_interactions?: string[]
+                      link_attachments?: boolean
+              urls?:
+                type : object
+                properties :
+                  user?: string
+      media?:
+        type : object
+        properties :
+          picture_size_min?: number
+          picture_size_max?: number
+          picture_filetypes?: string[]
+    example:
+      services:
+        twitter:
+          types:
+            profile:
+              name: Twitter
+              character_limit: 140
+              schedule_limit: 730
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/twitter-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/twitter-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/twitter-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: false
+          urls:
+            user: https:\/\/twitter.com\/
+            hashtag: https:\/\/twitter.com\/#!\/search?q=%23
+            cashtag: https:\/\/twitter.com\/#!\/search?q=%24
+        facebook:
+          types:
+            profile:
+              name: Facebook
+              character_limit: 5000
+              schedule_limit: 25
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/facebook-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/facebook-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/facebook-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+            page:
+              name: Facebook Page
+              character_limit: 5000
+              schedule_limit: 25
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/facebook-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/facebook-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/facebook-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+            group:
+              name: Facebook Group
+              character_limit: 5000
+              schedule_limit: 25
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/fb-group-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/fb-group-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/fb-group-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+          urls:
+            user: https:\/\/www.facebook.com\/
+        linkedin:
+          types:
+            profile:
+              name: LinkedIn
+              character_limit: 700
+              schedule_limit: 100
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+            group:
+              name: LinkedIn Group
+              character_limit: 200
+              schedule_limit: 100
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+            page:
+              name: LinkedIn Company Page
+              character_limit: 600
+              schedule_limit: 100
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/linkedin-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/linkedin-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/linkedin-64x64.png
+              supported_interactions:
+                - comments
+                - comment
+                - likes
+                - like
+              link_attachments: true
+          urls:
+            user: http:\/\/www.linkedin.com\/search\/fpsearch?type=people&keywords=
+        appdotnet:
+          types:
+            profile:
+              name: App.net
+              character_limit: 256
+              schedule_limit: 730
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha2-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/appdotnet-alpha-64x64.png
+              supported_interactions: []
+              link_attachments: false
+          urls:
+            user: https:\/\/alpha.app.net\/
+            hashtag: https:\/\/alpha.app.net\/hashtags\/
+        google:
+          types:
+            profile:
+              name: Google+
+              character_limit: 5000
+              schedule_limit: 100
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/google-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/google-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/google-64x64.png
+              supported_interactions:
+                - plusOnes
+                - plusOne
+                - comments
+                - comment
+                - reshares
+                - reshare
+              link_attachments: true
+            page:
+              name: Google+ Page
+              character_limit: 5000
+              schedule_limit: 100
+              icons:
+                16: http:\/\/static.bufferapp.com\/images\/services\/google-16x16.png
+                32: http:\/\/static.bufferapp.com\/images\/services\/google-32x32.png
+                64: http:\/\/static.bufferapp.com\/images\/services\/google-64x64.png
+              supported_interactions:
+                - plusOnes
+                - plusOne
+                - comments
+                - comment
+                - reshares
+                - reshare
+              link_attachments: true
+          urls:
+            user: https:\/\/plus.google.com\/
+      media:
+        picture_size_min: 0
+        picture_size_max: 3145728
+        picture_filetypes:
+          - jpeg
+          - jpg
+          - gif
+          - png

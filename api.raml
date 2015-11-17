@@ -5,23 +5,8 @@ baseUri: https://api.bufferapp.com/{version}/
 mediaType: application/json
 securitySchemes:
   - oauth_2_0: !include securitySchemes/oauth_2_0.raml
-schemas:
-  - user: !include schemas/user-schema.json
-  - profiles: !include schemas/profiles-schema.json
-  - profile: !include schemas/profile-schema.json
-  - schedules: !include schemas/schedules-schema.json
-  - schedules-update: !include schemas/schedules-update-schema.json
-  - update: !include schemas/update-schema.json
-  - updates-array: !include schemas/updates-array-schema.json
-  - interactions: !include schemas/interactions-schema.json
-  - reorder: !include schemas/reorder-schema.json
-  - shuffle: !include schemas/shuffle-schema.json
-  - newUpdate: !include schemas/newUpdate-schema.json
-  - individual-update: !include schemas/individual-update-schema.json
-  - share: !include schemas/share-schema.json
-  - shares: !include schemas/shares-schema.json
-  - configuration: !include schemas/configuration-schema.json
-  - success: !include schemas/success-schema.json
+uses:
+  types: !include types.raml
 resourceTypes:
   - standardResource: !include resourceTypes/standardResource.raml
 securedBy: [ oauth_2_0 ]
@@ -38,8 +23,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: user
-            example: !include examples/user-example.json
+            type: types.User
 /profiles{mediaTypeExtension}:
   type: standardResource
   uriParameters:
@@ -53,8 +37,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: profiles
-            example: !include examples/profiles-example.json
+            type: types.Profiles
 /profiles:
   /{id}{mediaTypeExtension}:
     type: standardResource
@@ -69,8 +52,7 @@ securedBy: [ oauth_2_0 ]
         200:
           body:
             application/json:
-              schema: profile
-              example: !include examples/profile-example.json
+              type: types.Profile
   /{id}:
     /schedules{mediaTypeExtension}:
       type: standardResource
@@ -85,8 +67,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: schedules
-                example: !include examples/schedules-example.json
+                type: types.Schedules
     /schedules/update{mediaTypeExtension}:
       type: standardResource
       uriParameters:
@@ -108,8 +89,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: schedules-update
-                example: !include examples/schedules-update-example.json
+                type: types.Schedules-update
     /updates:
       /pending{mediaTypeExtension}:
         type: standardResource
@@ -138,8 +118,7 @@ securedBy: [ oauth_2_0 ]
             200:
               body:
                 application/json:
-                  schema: updates-array
-                  example: !include examples/updates-array-example.json
+                  type: types.Updates-array
       /sent{mediaTypeExtension}:
         type: standardResource
         uriParameters:
@@ -167,8 +146,7 @@ securedBy: [ oauth_2_0 ]
             200:
               body:
                 application/json:
-                  schema: updates-array
-                  example: !include examples/updates-array-example.json
+                  type: types.Updates-array
       /reorder{mediaTypeExtension}:
         type: standardResource
         uriParameters:
@@ -195,8 +173,7 @@ securedBy: [ oauth_2_0 ]
             200:
               body:
                 application/json:
-                  schema: reorder
-                  example: !include examples/reorder-example.json
+                  type: types.Reorder
       /shuffle{mediaTypeExtension}:
         type: standardResource
         uriParameters:
@@ -220,8 +197,7 @@ securedBy: [ oauth_2_0 ]
             200:
               body:
                 application/json:
-                  schema: shuffle
-                  example: !include examples/shuffle-example.json
+                  type: types.Reorder
 /updates:
   /{id}{mediaTypeExtension}:
     type: standardResource
@@ -236,8 +212,7 @@ securedBy: [ oauth_2_0 ]
         200:
           body:
             application/json:
-              schema: update
-              example: !include examples/update-example.json
+              type: types.Update
   /{id}:
     /interactions{mediaTypeExtension}:
       type: standardResource
@@ -264,8 +239,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: interactions
-                example: !include examples/interactions-example.json
+                type: types.Interactions
     /update{mediaTypeExtension}:
       type: standardResource
       uriParameters:
@@ -301,8 +275,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: individual-update
-                example: !include examples/individual-update-example.json
+                type: types.Individual-update
     /share{mediaTypeExtension}:
       type: standardResource
       uriParameters:
@@ -316,8 +289,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: success
-                example: !include examples/share-example.json
+                type: types.Success
     /destroy{mediaTypeExtension}:
       type: standardResource
       uriParameters:
@@ -331,8 +303,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: success
-                example: !include examples/share-example.json
+                type: types.Success
     /move_to_top{mediaTypeExtension}:
       type: standardResource
       uriParameters:
@@ -346,8 +317,7 @@ securedBy: [ oauth_2_0 ]
           200:
             body:
               application/json:
-                schema: update
-                example: !include examples/update-example.json
+                type: types.Update
   /create{mediaTypeExtension}:
     type: standardResource
     uriParameters:
@@ -360,7 +330,7 @@ securedBy: [ oauth_2_0 ]
         Create one or more new status updates.
       body:
         application/x-www-form-urlencoded:
-          properties: 
+          properties:
             text:
               description: The status update text.
               required: true
@@ -395,8 +365,7 @@ securedBy: [ oauth_2_0 ]
         200:
           body:
             application/json:
-              schema: newUpdate
-              example: !include examples/newUpdate-example.json
+              type: types.NewUpdate
 /links/shares{mediaTypeExtension}:
   type: standardResource
   uriParameters:
@@ -415,8 +384,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: shares
-            example: !include examples/shares-example.json
+            type: types.Shares
 /info/configuration{mediaTypeExtension}:
   type: standardResource
   uriParameters:
@@ -430,8 +398,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: configuration
-            example: !include examples/configuration-example.json
+            type: types.Configuration
 documentation:
   - title: Headline
     content: !include docs/headline.md
