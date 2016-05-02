@@ -4,11 +4,11 @@ version: 1
 baseUri: https://api.bufferapp.com/{version}/
 mediaType: application/json
 securitySchemes:
-  - oauth_2_0: !include securitySchemes/oauth_2_0.raml
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
 uses:
-  types: !include types.raml
+  types: types.raml
 resourceTypes:
-  - standardResource: !include resourceTypes/standardResource.raml
+  standardResource: !include resourceTypes/standardResource.raml
 securedBy: [ oauth_2_0 ]
 /user{mediaTypeExtension}:
   type: standardResource
@@ -110,7 +110,7 @@ securedBy: [ oauth_2_0 ]
               type: integer
             since:
               description: Specifies a unix timestamp which only status updates created after this time will be retrieved.
-              type: date
+              type: datetime
             utc:
               description: If utc is set times will be returned relative to UTC rather than the users associated timezone.
               type: boolean
@@ -138,7 +138,7 @@ securedBy: [ oauth_2_0 ]
               type: integer
             since:
               description: Specifies a unix timestamp which only status updates created after this time will be retrieved.
-              type: date
+              type: datetime
             utc:
               description: If utc is set times will be returned relative to UTC rather than the users associated timezone.
               type: boolean
